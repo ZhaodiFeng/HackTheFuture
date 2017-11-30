@@ -5,7 +5,7 @@ package com.hackthefuture.Authentication;
  */
 
 import com.hackthefuture.DAL.models.User;
-import com.hackthefuture.UserRepository;
+import com.hackthefuture.DAL.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
