@@ -29,25 +29,5 @@
             $("#long").value = location.coords.longitude;   
         });
     }
-
-
-
-    var x = document.getElementById("demo");
-
-    function getLat() {
-        if (navigator.geolocation) {
-            return navigator.geolocation.getCurrentPosition().coords.latitude;
-        } else {
-            x.innerHTML = "Geolocation is not supported by this browser.";
-        }
-    }
-
-    function getLong() {
-        if (navigator.geolocation) {
-            return navigator.geolocation.getCurrentPosition().coords.longitude;
-        } else {
-            x.innerHTML = "Geolocation is not supported by this browser.";
-        }
-    }
     /*]]>*/
 </script>
