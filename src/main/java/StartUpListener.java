@@ -1,4 +1,7 @@
+import com.hackthefuture.DAL.models.Alert;
+import com.hackthefuture.DAL.models.Location;
 import com.hackthefuture.DAL.models.User;
+import com.hackthefuture.DAL.repositories.AlertRepository;
 import com.hackthefuture.DAL.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
@@ -14,8 +17,10 @@ import java.util.List;
  */
 @Component
 public class StartUpListener implements ApplicationListener<ContextRefreshedEvent>{
-@Autowired
-private UserRepository userRepository;
+    @Autowired
+    private UserRepository userRepository;
+    @Autowired
+    private AlertRepository alertRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
 
@@ -31,6 +36,13 @@ private UserRepository userRepository;
             user.setPassword(passwordEncoder.encode("123"));
             user.setActive(true);
             userRepository.save(user);
+
+            Alert alert = new Alert();
+            alert.setUser(user);
+            alert.setLocation(new Location(51.260197,4.402771));
+            alert.setDetails("test location");
+
+            alertRepository.insert(alert);
         }
 
     }
