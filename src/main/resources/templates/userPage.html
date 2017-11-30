@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"></meta>
     <title>Title</title>
 </head>
 <body>
 <div>
     <form id="receivers2" th:action="@{/user/alert}" th:object="${alert}" method="post">
         <table>
-            <tr><td>Details : </td><td></td><textarea rows="8" cols="100"></textarea></tr>
+            <tr><td>Details : </td><td></td><textarea th:field="*{details}" rows="8" cols="100"></textarea></tr>
+            <tr><td><input th:field="*location.longtitude" hidden="hidden"/></td></tr>
         </table>
+        <input class="btn btn-default ld-ext-right" id="saveAlertButton" type="button" value="Opslaan"/>
     </form>
 
 </div>

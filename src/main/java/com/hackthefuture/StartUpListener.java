@@ -1,7 +1,6 @@
 package com.hackthefuture;
 
 import com.hackthefuture.DAL.models.Alert;
-import com.hackthefuture.DAL.models.Location;
 import com.hackthefuture.DAL.models.User;
 import com.hackthefuture.DAL.repositories.AlertRepository;
 import com.hackthefuture.DAL.repositories.UserRepository;
@@ -42,7 +41,8 @@ public class StartUpListener implements ApplicationListener<ContextRefreshedEven
 
             Alert alert = new Alert();
             alert.setUser(user);
-            alert.setLocation(new Location(51.260197,4.402771));
+            alert.setLatitude(51.260197);
+            alert.setLongitude(4.402771);
             alert.setDetails("test location");
 
             alertRepository.insert(alert);

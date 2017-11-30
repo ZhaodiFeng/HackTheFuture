@@ -2,11 +2,10 @@ package com.hackthefuture.PL;
 
 import com.hackthefuture.DAL.models.Alert;
 import com.hackthefuture.DAL.repositories.AlertRepository;
+import com.hackthefuture.DAL.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -19,6 +18,17 @@ public class UserAlertController {
 
     @Autowired
     private AlertRepository alertRepository;
+    @Autowired
+    private UserRepository userRepository;
+
+    @GetMapping("/alert/{username}")
+    public ModelAndView getAlert(
+            Model model,
+            @PathVariable("username") String username){
+        model.addAttribute("user", userRepository.findByUsername(username));
+        return new ModelAndView("userPage");
+    }
+
 
     @PostMapping("/alert")
     public ModelAndView insertNewAlert(

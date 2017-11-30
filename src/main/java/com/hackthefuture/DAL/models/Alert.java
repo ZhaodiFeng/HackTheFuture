@@ -12,8 +12,10 @@ public class Alert {
     @Id
     private int id;
     private User user;
-    private Location location;
+    private double latitude;
+    private double longitude;
     private String details;
+
 
     public int getId() {
         return id;
@@ -31,12 +33,20 @@ public class Alert {
         this.user = user;
     }
 
-    public Location getLocation() {
-        return location;
+    public double getLatitude() {
+        return latitude;
     }
 
-    public void setLocation(Location location) {
-        this.location = location;
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
     }
 
     public String getDetails() {
@@ -52,7 +62,8 @@ public class Alert {
         return "{\"_class\":\"Alert\", " +
                 "\"id\":\"" + id + "\"" + ", " +
                 "\"user\":" + (user == null ? "null" : user) + ", " +
-                "\"location\":" + (location == null ? "null" : location) + ", " +
+                "\"latitude\":\"" + latitude + "\"" + ", " +
+                "\"longitude\":\"" + longitude + "\"" + ", " +
                 "\"details\":" + (details == null ? "null" : "\"" + details + "\"") +
                 "}";
     }
