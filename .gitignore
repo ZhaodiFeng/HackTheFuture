@@ -22,5 +22,3 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
-src/main/java/com/hackthefuture/PL/UserAlertController.java
-src/main/java/com/hackthefuture/PL/UserAlertController.java
