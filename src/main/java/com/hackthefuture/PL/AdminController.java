@@ -34,6 +34,10 @@ public class AdminController {
         return new ModelAndView("Users");
     }
 
+    @GetMapping("/monitor")
+    public ModelAndView monitor(){
+        return new ModelAndView("Alert");
+    }
 
     @GetMapping("/alerts")
     public List<Alert> getAlerts() {
