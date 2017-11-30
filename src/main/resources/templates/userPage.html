@@ -10,8 +10,8 @@
         <table>
             <tr><td>Details : </td><td><textarea th:field="*{details}" rows="8" cols="60"></textarea></td></tr>
         </table>
-        <input th:field="*{latitude}" hidden="hidden" id="lat" value="getLat()"/>
-        <input th:field="*{longitude}" hidden="hidden" id=long" value="getLong()"/>
+        <input th:field="*{latitude}" hidden="hidden" id="lat"/>
+        <input th:field="*{longitude}" hidden="hidden" id="long"/>
 
         <input class="btn btn-default ld-ext-right" id="saveAlertButton" type="submit" onclick="setCoords()" value="Opslaan"/>
     </form>
@@ -26,7 +26,7 @@
     function setCoords(){
         navigator.geolocation.getCurrentPosition(function(location) {
             $("#lat").value = location.coords.latitude;
-            $("#long").value = location.coords.longitude;
+            $("#long").value = location.coords.longitude;   
         });
     }
 

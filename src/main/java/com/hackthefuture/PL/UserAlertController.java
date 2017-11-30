@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.security.Principal;
+
 /**
  * Created by kaisu on 30/11/2017.
  */
@@ -32,7 +34,9 @@ public class UserAlertController {
     @PostMapping("/alert")
     public ModelAndView insertNewAlert(
             @ModelAttribute Alert alert,
+            Principal principal,
             final RedirectAttributes redirectAttributes) {
+        alert.setUser(userRepository.findByUsername(principal.getName()).get(0));
         alertRepository.insert(alert);
         return new ModelAndView("redirect:/user/alert");
     }
