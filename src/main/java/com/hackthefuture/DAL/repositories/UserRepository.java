@@ -13,5 +13,7 @@ public interface UserRepository extends MongoRepository<User, String> {
 
     List<User> findAllByUsernameContaining(String string);
 
+    User findById(int id);
+
     void deleteUsersByUsername(String username);
 }

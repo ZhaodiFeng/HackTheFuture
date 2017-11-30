@@ -10,16 +10,20 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 public class Alert {
     @Id
-    private int id;
+    private String id;
     private User user;
-    private Location location;
+    private String latitude;
+    private String longitude;
     private String details;
 
-    public int getId() {
+    public Alert() {
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -31,12 +35,20 @@ public class Alert {
         this.user = user;
     }
 
-    public Location getLocation() {
-        return location;
+    public String getLatitude() {
+        return latitude;
     }
 
-    public void setLocation(Location location) {
-        this.location = location;
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
     }
 
     public String getDetails() {
@@ -50,9 +62,10 @@ public class Alert {
     @Override
     public String toString() {
         return "{\"_class\":\"Alert\", " +
-                "\"id\":\"" + id + "\"" + ", " +
+                "\"id\":" + (id == null ? "null" : "\"" + id + "\"") + ", " +
                 "\"user\":" + (user == null ? "null" : user) + ", " +
-                "\"location\":" + (location == null ? "null" : location) + ", " +
+                "\"latitude\":" + (latitude == null ? "null" : "\"" + latitude + "\"") + ", " +
+                "\"longitude\":" + (longitude == null ? "null" : "\"" + longitude + "\"") + ", " +
                 "\"details\":" + (details == null ? "null" : "\"" + details + "\"") +
                 "}";
     }
