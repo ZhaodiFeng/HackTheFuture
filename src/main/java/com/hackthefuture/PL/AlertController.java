@@ -11,7 +11,7 @@ import java.util.List;
  * Created by kaisu on 30/11/2017.
  */
 @RestController
-@RequestMapping("/data")
+@RequestMapping("/admin")
 public class AlertController {
 
     @Autowired
