@@ -24,14 +24,7 @@ public class UserAlertController {
     public ModelAndView insertNewAlert(
             @ModelAttribute Alert alert,
             final RedirectAttributes redirectAttributes) {
-
-
-
-
         alertRepository.insert(alert);
-
-
-
         return new ModelAndView("redirect:/user/alert");
     }
 }

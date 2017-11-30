@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>Users</title>
+</head>
+<body>
+
+<div id="gebruikersBox">
+    <table class="tableGebruikers">
+        <tr>
+            <th>Gebruikersnaam</th>
+            <th>Basisrol</th>
+            <th>Laatste bezoek</th>
+            <th>Active</th>
+        </tr>
+        <tr th:each="u : ${users}">
+            <td><a th:text="${u.username}" id="Gebruikersnaam">Name</a></td>
+            <td><a th:text="${u.authorities}" id="Basisrol">Authorities</a></td>
+            <td><a th:text="${u.lastBezoek}" id="Laatste bezoek"></a></td>
+            <td><a th:text="${u.active}"></a></td>
+            <td>
+                <form action="#" th:action="@{/admin/users/{username}(username=${u.username})}"
+                      th:method="delete">
+                    <input type="hidden" name="_method" value="delete"/>
+                    <button type="submit" onclick="confirmDelete(event)" id="submitDeleteBtn"><i
+                            class="fa fa-trash" aria-hidden="true"></i></button>
+                </form>
+            </td>
+
+        </tr>
+    </table>
+    </div>
+
+<form action="#" th:action="@{/admin/users}" th:object="${user}" method="post">
+    <table>
+        <tr>
+            <th>Username</th>
+            <td><input th:field="*{username}" required="true"/></td>
+            <th>password</th>
+            <td><input id="userAddPasswordInput" th:field="*{password}" type="password" required="true"/>
+            </td>
+            <th>Confirm password</th>
+            <td><input id="userAddPasswordConfirmInput" type="password" required="true"/></td>
+        </tr>
+        <tr>
+            <th>Admin</th>
+            <td><input th:field="*{authorities}" value="admin" type="checkbox"/></td>
+            <th>Normal</th>
+            <td><input th:field="*{authorities}" value="normal" type="checkbox"/></td>
+        </tr>
+        <tr>
+            <th>Active</th>
+            <td><input th:field="*{active}" type="checkbox"/></td>
+        </tr>
+    </table>
+    <br/>
+    <input id="userAddSubmitBtn" type="submit" value="Save"/>
+</form>
+
+<!--</div>-->
+</body>
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    function confirmDelete(e) {
+        if (!confirm('Are you sure?')) e.preventDefault();
+    }
+    /*]]>*/
+</script>
+
+</html>
