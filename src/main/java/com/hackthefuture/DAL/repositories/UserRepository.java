@@ -1,4 +1,4 @@
-package com.hackthefuture;
+package com.hackthefuture.DAL.repositories;
 
 import com.hackthefuture.DAL.models.User;
 import org.springframework.data.mongodb.repository.MongoRepository;

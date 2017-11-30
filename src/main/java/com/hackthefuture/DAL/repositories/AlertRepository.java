@@ -1,4 +1,4 @@
-package com.hackthefuture;
+package com.hackthefuture.DAL.repositories;
 
 import com.hackthefuture.DAL.models.Alert;
 import org.springframework.data.mongodb.repository.MongoRepository;
@@ -13,4 +13,6 @@ public interface AlertRepository extends MongoRepository<Alert, String> {
     List<Alert> getAll();
 
     Alert getById(int id);
+
+    void addAlert(Alert alert);
 }

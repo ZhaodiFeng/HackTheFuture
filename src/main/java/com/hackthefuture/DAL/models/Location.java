@@ -36,4 +36,13 @@ public class Location {
     public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
+
+    @Override
+    public String toString() {
+        return "{\"_class\":\"Location\", " +
+                "\"id\":\"" + id + "\"" + ", " +
+                "\"latitude\":\"" + latitude + "\"" + ", " +
+                "\"longitude\":\"" + longitude + "\"" +
+                "}";
+    }
 }
