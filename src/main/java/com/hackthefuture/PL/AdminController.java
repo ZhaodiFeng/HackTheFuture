@@ -36,7 +36,7 @@ public class AdminController {
 
     @GetMapping("/monitor")
     public ModelAndView monitor(){
-        return new ModelAndView("Alert");
+        return new ModelAndView("Monitor");
     }
 
     @GetMapping("/alerts")
