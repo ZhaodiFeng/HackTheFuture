@@ -1,10 +1,12 @@
 package com.hackthefuture.DAL.models;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * Created by kaisu on 30/11/2017.
- */
+ */@Document(collection = "locations")
+
 public class Location {
     @Id
     private int id;

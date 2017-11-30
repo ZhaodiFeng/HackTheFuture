@@ -1,6 +1,7 @@
 package com.hackthefuture.DAL.models;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotNull;
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.List;
 /**
  * Created by kaisu on 30/11/2017.
  */
+@Document(collection = "users")
 public class User {
     @Id
     public String id;

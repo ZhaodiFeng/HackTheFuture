@@ -1,10 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"></meta>
-    <title>Login</title>
+    <title tiles:fragment="title">Login Page</title>
+    <link href="https://fonts.googleapis.com/css?family=Anton|Montserrat|Roboto:700" rel="stylesheet"/>
+    <script th:src="@{/js/jquery.min.js}"/>
+    <link th:href="@{/css/stylesheet.css}" rel="stylesheet"/>
+    <script th:src="@{/js/fontawesome.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <link rel="shortcut icon" th:href="@{/images/favicon.ico}"/>
 </head>
 <body>
 
+<div id="containerLogin"></div>
+
+
+<div id="formbox">
+    <div th:if="${param.error}">
+        <div id="errorMessage">Invalid login</div>
+    </div>
+    <div id="loginBox">
+        <form name="f" th:action="@{/login}" method="post">
+
+            <div id="usernamefield">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required="true"/><br/><br/>
+            </div>
+
+            <div id="passwordfield">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required="true"/><br/><br/>
+            </div>
+
+            <button type="submit" class="btn">Log in <i class="fa fa-sign-in" aria-hidden="true"></i></button>
+        </form>
+    </div>
+</div>
+
+<!--<div th:replace="footer::footer"/>-->
 </body>
 </html>
