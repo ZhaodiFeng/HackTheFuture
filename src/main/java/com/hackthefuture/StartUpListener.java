@@ -41,8 +41,8 @@ public class StartUpListener implements ApplicationListener<ContextRefreshedEven
 
             Alert alert = new Alert();
             alert.setUser(user);
-            alert.setLatitude(51.260197);
-            alert.setLongitude(4.402771);
+            alert.setLatitude("51.260197");
+            alert.setLongitude("4.402771");
             alert.setDetails("test location");
 
             alertRepository.insert(alert);

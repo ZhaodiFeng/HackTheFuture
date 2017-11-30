@@ -23,7 +23,7 @@ public class AlertController {
     }
 
     @GetMapping("/alerts/{id}")
-    public Alert getAlert(@PathVariable("id") int id) {
+    public Alert getAlert(@PathVariable("id") String id) {
         return alertRepository.getById(id);
     }
 

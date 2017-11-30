@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface AlertRepository extends MongoRepository<Alert, String> {
 
-    Alert getById(int id);
+    Alert getById(String id);
 
 
 }
